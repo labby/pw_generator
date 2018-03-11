@@ -6,7 +6,7 @@
  *	@author			cms-lab
  *	@copyright		2016-2018 cms-lab
  *	@license		copyright, all rights reserved
- *	@license_terms  please see info.php of this module 
+ *	@license_terms	please see info.php of this module 
  *	@platform		see info.php of this module
  */
  
