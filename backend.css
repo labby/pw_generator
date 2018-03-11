@@ -1,0 +1,110 @@
+/**
+ *	@module				pw_generator
+ *	@version			see info.php of this module
+ *	@authors			cms-lab
+ *	@copyright		2012 cms-lab
+ *	@license			copyright, all rights reserved
+ *	@platform			see info.php of this module
+ */
+ 
+#tool {
+    float: left;
+    margin-left: 140px;
+    width: 581px;
+}  
+ 
+#tool_header {
+    float: left;
+    font-size: 18px;
+    height: 26px;
+    padding-top: 4px;
+    width: 50%;
+} 
+
+#tool_support {
+    float: left;
+    text-align: right;
+    width: 50%;
+} 
+
+#pw_content {
+    background: none repeat scroll 0 0 #CCCCCC;
+    float: left;
+    margin-right: 300px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    padding-top: 20px;
+    width: 551px;
+} 
+
+#content_input {
+    float: left;
+    width: 100%;
+} 
+
+.inputvalue {
+    float: left;
+    margin-bottom: 14px;
+    width: 100%;
+} 
+
+.inputvalue p {
+    float: left;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+    width: 220px;
+} 
+.inputvalue select {
+    float: left;
+    width: 56px;
+} 
+
+.inputvalue input[type='text'] {
+    color: #000000;
+    float: left;
+    font-size: 12px;
+    padding: 2px;
+    width: 52px;
+} 
+
+#content_input input[type='submit'] {
+    color: green;
+    font-size: 14px;
+    margin-left: 360px;
+    padding: 6px;
+} 
+
+.pw_result_name {
+    background: none repeat scroll 0 0 #AAAAAA;
+    float: left;
+    font-size: 16px;
+    padding: 10px 10px 10px 30px;
+    width: 110px;
+}  
+
+.pw_result {
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: green;
+    float: left;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 10px 10px 30px;
+    width: 391px;   
+}  
+
+hr {
+    color: #003366;
+    float: left;
+    height: 1px;
+    margin: 15px 0;
+    width: 100%;
+}
+
+#copyright {
+    float: left;
+    margin-top: 10px;
+    text-align: center;
+    width: 99%;
+}
+
