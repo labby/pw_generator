@@ -1,2 +1,2 @@
-# pw_generator
-LEPTONadmintool: Create new safe passwords easily
+# PW Generator
+LEPTON admintool: Create new safe passwords easily.

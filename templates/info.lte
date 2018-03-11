@@ -1,0 +1,54 @@
+{#
+/**
+ *	@module			pw_generator
+ *	@version		see info.php of this module
+ *	@author			cms-lab
+ *	@copyright		2016-2018 cms-lab
+ *	@license		copyright, all rights reserved
+ *	@license_terms  please see info.php of this module 
+ *	@platform		see info.php of this module
+ */
+ #}
+ 
+<!-- start twig content -->
+{% autoescape false %}
+
+		<div class="ui {{ oPWG.addon_color }} segment">
+			<h3 class="ui header">Addon Info</h3>
+			<div class="ui basic segment">
+				<h3 class="ui header"></h3>
+
+				<div class="spacer"></div>
+				<div class="ui grid">
+					<div class="one wide column"></div>					
+					<div class="five wide column">
+						<img src="{{ image_url }}" class="module_icon" />
+					</div>
+					<div class="eight wide column custom_link">
+						<h3>{{ oPWG.module_name }}</h3>
+						<h4>{{ oPWG.module_description }}</h4>
+						<p> </p>						
+						<p>{{ TEXT.VERSION }}: {{ oPWG.module_version }}</p>	
+						<p> </p>
+						<p>GUID: {{ oPWG.module_guid }}</p>	
+						<p> </p>						
+						<p>{{ oPWG.module_license }}: {{ oPWG.module_license_terms }}</p>
+						<p> </p>						
+						<div class="ui basic button">
+						<i class="{{ oPWG.addon_color }} icon call square"></i>
+						<!-- include js code -->
+						{{ oPWG.support_link }}
+						</div>
+						<p> </p>
+						<p>{{ oPWG.readme_link }}</p>
+						<div class="spacer3"> </div>						
+						<p><a href="{{ oPWG.action_url }}"><input class="ui {{ oPWG.addon_color }} button" type="submit" value="{{ TEXT.BACK }}" /></a></p>							
+					</div>
+					<div class="two wide column"></div>
+				</div>
+
+			</div>
+		</div>
+	
+{% endautoescape %}
+<!-- end twig content -->

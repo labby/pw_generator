@@ -1,0 +1,103 @@
+{#
+/**
+ *	@module			pw_generator
+ *	@version		see info.php of this module
+ *	@author			cms-lab
+ *	@copyright		2016-2018 cms-lab
+ *	@license		copyright, all rights reserved
+ *	@license_terms  please see info.php of this module 
+ *	@platform		see info.php of this module
+ */
+ #}
+ 
+{% autoescape false %}
+
+<div class="ui {{ oPWG.addon_color }} segment">
+	<div class="ui basic segment">
+		<h3 class="ui header">{{ oPWG.module_name }}</h3>
+		<form class="ui form">	
+			<a href="{{ readme_link }}" target="_blank"><button class="ui {{ oPWG.addon_color }} basic right floated button" type="button"><i class="help icon"></i>{{ MENU.HELP }}</button></a>					
+			<button class="ui {{ oPWG.addon_color }} basic right floated button" type="submit" name="show_info" value="show" title="show_info" formaction="{{ oPWG.action_url }}" formmethod="post"><i class="info icon"></i>Addon Info</button>
+			<a href="{{ oPWG.action_url }}" title="Reload"><button class="ui {{ oPWG.addon_color }} basic right floated button" type="button"><i class="recycle icon"></i>{{ TEXT.RESET }}</button></a>
+		</form>
+	</div>			
+	<div class="ui basic segment">
+		<div class="spacer4"></div>
+		{% if  password != false %} 
+			<div class="ui huge success message">
+				<div class="header">{{ oPWG.language.PASSWORD }}</div>
+				<div class="header">{{ password }}</div>
+			</div>		
+			<div class="spacer4"></div>
+		{% endif %}>		
+		<form class="ui form" id="generate" action="" method="post">	
+			<input type="hidden" name="tool" value="{{ oPWG.module_directory }}" />
+			<input type="hidden" name="job" value="generate" />
+			<input type="hidden" name="leptoken" value="{{ leptoken }}" />							
+			<div class="ui grey inverted segment {{ oPWG.module_directory }}">
+				<h3 class="ui header">{{ oPWG.language.CHOOSE }}</h3>
+				<div class="ui stackable two column grid">				
+					<div class="column">			
+						<div class="field">
+							<label>{{ oPWG.language.ALPHA_UPPER }}</label>
+							<select name="alpha_upper_include" class="ui fluid dropdown" id="alpha_upper_include">
+								<option value ="yes" {% if  POST.alpha_upper_include == 'yes' %} selected="selected"{% endif %}>{{ oPWG.language.YES }}</option>
+								<option value ="no" {% if  POST.alpha_upper_include == 'no' %} selected="selected"{% endif %}>{{ oPWG.language.NO }}</option>
+							</select>													
+						</div>	
+					</div>			
+					<div class="column">			
+						<div class="field">
+							<label>{{ oPWG.language.ALPHA_LOWER }}</label>
+							<select name="alpha_lower_include" class="ui fluid dropdown" id="alpha_lower_include">
+								<option value ="yes" {% if  POST.alpha_lower_include == 'yes' %} selected="selected"{% endif %}>{{ oPWG.language.YES }}</option>
+								<option value ="no" {% if  POST.alpha_lower_include == 'no' %} selected="selected"{% endif %}>{{ oPWG.language.NO }}</option>
+							</select>													
+						</div>	
+					</div>
+				</div>
+				
+				<div class="spacer4"></div>	
+
+				<div class="ui stackable two column grid">				
+					<div class="column">			
+						<div class="field">
+							<label>{{ oPWG.language.INCLUDE_NUMBER }}</label>
+							<select name="number_include" class="ui fluid dropdown" id="number_include">
+								<option value ="yes" {% if  POST.number_include == 'yes' %} selected="selected"{% endif %}>{{ oPWG.language.YES }}</option>
+								<option value ="no" {% if  POST.number_include == 'no' %} selected="selected"{% endif %}>{{ oPWG.language.NO }}</option>
+							</select>														
+						</div>	
+					</div>			
+					<div class="column">			
+						<div class="field">
+							<label>{{ oPWG.language.INCLUDE_SYMBOL }}</label>
+							<select name="symbol_include" class="ui fluid dropdown" id="symbol_include">
+								<option value ="yes" {% if  POST.symbol_include == 'yes' %} selected="selected"{% endif %}>{{ oPWG.language.YES }}</option>
+								<option value ="no" {% if  POST.symbol_include == 'no' %} selected="selected"{% endif %}>{{ oPWG.language.NO }}</option>
+							</select>													
+						</div>	
+					</div>
+				</div>	
+
+				<div class="spacer4"></div>	
+
+				<div class="ui stackable two column grid">				
+					<div class="column">			
+						<div class="field inputvalue">
+							<label>{{ oPWG.language.PW_LENGTH }}</label>
+							<input type="text" name="length" value="{{ length }}" />							
+						</div>		
+					</div>			
+					<div class="column">				
+					</div>
+				</div>	
+				<div class="spacer4"></div>
+				<button class="ui orange button" type="submit" value="generate_pw">{{ oPWG.language.GENERATE_PW }}</button>				
+			<div class="spacer4"></div>
+			</div>
+		</form>							
+		<div class="spacer2"></div>					
+	</div>
+</div>
+{% endautoescape %}
