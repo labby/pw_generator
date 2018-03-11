@@ -71,7 +71,8 @@ class pw_generator extends LEPTON_abstract {
 			'alpha_upper_include'	=> $alpha_upper_include,
 			'alpha_lower_include'	=> $alpha_lower_include,
 			'number_include'	=> $number_include,
-			'symbol_include'	=> $symbol_include,			
+			'symbol_include'	=> $symbol_include,	
+			'readme_link'	=> "http://cms-lab.com/_documentation/pw_generator/readme.php",				
 			'leptoken'	=> get_leptoken()		
 
 		);

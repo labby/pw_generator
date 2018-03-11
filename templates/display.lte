@@ -29,7 +29,7 @@
 				<div class="header">{{ password }}</div>
 			</div>		
 			<div class="spacer4"></div>
-		{% endif %}>		
+		{% endif %}		
 		<form class="ui form" id="generate" action="" method="post">	
 			<input type="hidden" name="tool" value="{{ oPWG.module_directory }}" />
 			<input type="hidden" name="job" value="generate" />
