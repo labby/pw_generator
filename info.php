@@ -33,7 +33,7 @@ if (defined('LEPTON_PATH')) {
 $module_directory	= 'pw_generator';
 $module_name		= 'Password-Generator';
 $module_function	= 'tool';
-$module_version		= '2.0.0';
+$module_version		= '2.0.1';
 $module_platform	= '4.x';
 $module_delete		=  true;
 $module_author		= 'CMS-LAB';
