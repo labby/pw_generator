@@ -30,25 +30,6 @@ if (defined('LEPTON_PATH')) {
 }
 // end include class.secure.php
 
-$debug = true;
-
-if (true === $debug)
-{
-    ini_set('display_errors', 1);
-    error_reporting(E_ALL | E_STRICT);
-}
-
-// get instance of functions file
-$oPWG = pw_generator::getInstance();
-
-if(isset ($_GET['tool']) && (empty($_POST)) ) {
-	$oPWG->display('show');	
-} elseif(isset ($_POST['job']) && ($_POST['job'] == 'generate') ) {
-	$oPWG->display('generate'); 
-} elseif(isset ($_POST['show_info']) && ($_POST['show_info']== 'show') ) {
-	$oPWG->show_info();
-} else {
-	die('something went wrong');
-}
+  
 
 ?>

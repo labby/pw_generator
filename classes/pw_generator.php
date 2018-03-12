@@ -34,11 +34,12 @@ class pw_generator extends LEPTON_abstract {
 
     public function display($id) 
 	{
+
 		$length = ( empty( $_POST['length'] ) ) ? 12 : $_POST['length'];
-		$alpha_upper_include = ( empty( $_POST['alpha_upper_include'] ) || $_POST['alpha_upper_include'] == 'no' ) ? FALSE : TRUE;
-		$alpha_lower_include = ( empty( $_POST['alpha_lower_include'] ) || $_POST['alpha_lower_include'] == 'no' ) ? FALSE : TRUE;
-		$number_include = ( empty( $_POST['number_include'] ) || $_POST['number_include'] == 'no' ) ? FALSE : TRUE;
-		$symbol_include = ( empty( $_POST['symbol_include'] ) || $_POST['symbol_include'] == 'no' ) ? FALSE : TRUE;		
+		$alpha_upper_include = ( empty( $_POST['alpha_upper_include'] ) || $_POST['alpha_upper_include'] == 0 ) ? FALSE : TRUE;
+		$alpha_lower_include = ( empty( $_POST['alpha_lower_include'] ) || $_POST['alpha_lower_include'] == 0 ) ? FALSE : TRUE;
+		$number_include = ( empty( $_POST['number_include'] ) || $_POST['number_include'] == 0 ) ? FALSE : TRUE;
+		$symbol_include = ( empty( $_POST['symbol_include'] ) || $_POST['symbol_include'] == 0 ) ? FALSE : TRUE;			
 		
 		if ( $id == 'show') 
 		{	
@@ -110,7 +111,64 @@ class pw_generator extends LEPTON_abstract {
 		);		
 		
 	}
+
+    public function display_frontend() 
+	{
+		$length = ( empty( $_POST['length'] ) ) ? 12 : $_POST['length'];
+		$alpha_upper_include = ( empty( $_POST['alpha_upper_include'] ) || $_POST['alpha_upper_include'] == 0 ) ? FALSE : TRUE;
+		$alpha_lower_include = ( empty( $_POST['alpha_lower_include'] ) || $_POST['alpha_lower_include'] == 0 ) ? FALSE : TRUE;
+		$number_include = ( empty( $_POST['number_include'] ) || $_POST['number_include'] == 0 ) ? FALSE : TRUE;
+		$symbol_include = ( empty( $_POST['symbol_include'] ) || $_POST['symbol_include'] == 0 ) ? FALSE : TRUE;		
+
+		
+		if (empty($_POST))
+		{	
+			// do nothing but display		
+			$password = false;
+		}
+
+		if (!empty($_POST))
+		{	
+			
+			require_once(LEPTON_PATH.'/modules/pw_generator/classes/chip_password_generator.php');	
+
+			 $args = array(
+						'length'				=>	$length,
+						'alpha_upper_include'	=>	$alpha_upper_include,
+						'alpha_lower_include'	=>	$alpha_lower_include,						
+						'number_include'		=>	$number_include,
+						'symbol_include'		=>	$symbol_include,	
+					);
+			$object = new chip_password_generator( $args );
+			
+			$password = $object->get_password();				
+		}	
+			
+		// data for twig template engine	
+		$data = array(
+			'oPWG'		=> $this,
+			'POST'		=> $_POST,
+			'password'	=> $password,
+			'length'	=> $length,
+			'alpha_upper_include'	=> $alpha_upper_include,
+			'alpha_lower_include'	=> $alpha_lower_include,
+			'number_include'	=> $number_include,
+			'symbol_include'	=> $symbol_include
+
+		);
+
+		/**	
+		 *	get the template-engine.
+		 */
+		$oTwig = lib_twig_box::getInstance();
+		$oTwig->registerModule('pw_generator');
+			
+		return $oTwig->render( 
+			"@pw_generator/view.lte",	//	template-filename
+			$data						//	template-data
+		);
 	
+	}	
 }
 
   

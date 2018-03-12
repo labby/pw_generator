@@ -29,5 +29,11 @@ if (defined('LEPTON_PATH')) {
 }
 // end include class.secure.php
 
+// droplet for frontend output
+LEPTON_handle::install_droplets('pw_generator', 'droplet_pw-frontend');
 
+//enable custom frontend styling for droplet output
+if(file_exists(LEPTON_PATH.'/modules/pw_generator/css/frontend_default.css')) {
+	rename(LEPTON_PATH.'/modules/pw_generator/css/frontend_default.css', LEPTON_PATH.'/modules/pw_generator/css/frontend.css');
+}
 ?>

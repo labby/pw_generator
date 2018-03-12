@@ -12,16 +12,9 @@
  
 {% autoescape false %}
 
-<div class="ui {{ oPWG.addon_color }} segment">
+<div class="ui basic segment pw_frontend">		
 	<div class="ui basic segment">
-		<h3 class="ui header">{{ oPWG.module_name }}</h3>
-		<form class="ui form">	
-			<a href="{{ readme_link }}" target="_blank"><button class="ui {{ oPWG.addon_color }} basic right floated button" type="button"><i class="help icon"></i>{{ MENU.HELP }}</button></a>					
-			<button class="ui {{ oPWG.addon_color }} basic right floated button" type="submit" name="show_info" value="show" title="show_info" formaction="{{ oPWG.action_url }}" formmethod="post"><i class="info icon"></i>Addon Info</button>
-			<a href="{{ oPWG.action_url }}" title="Reload"><button class="ui {{ oPWG.addon_color }} basic right floated button" type="button"><i class="recycle icon"></i>{{ TEXT.RESET }}</button></a>
-		</form>
-	</div>			
-	<div class="ui basic segment">
+	<link rel="stylesheet" type="text/css" href="{{ LEPTON_URL }}/modules/{{ oPWG.module_directory }}/css/frontend.css" media="screen,projection" />
 		<div class="spacer4"></div>
 		{% if  password != false %} 
 			<div class="ui huge success message">
@@ -93,7 +86,8 @@
 					</div>
 				</div>	
 				<div class="spacer4"></div>
-				<button class="ui orange button" type="submit" value="generate_pw">{{ oPWG.language.GENERATE_PW }}</button>				
+				<button class="ui orange button" type="submit" value="generate_pw">{{ oPWG.language.GENERATE_PW }}</button>	
+				<a href=" " title="Reload"><button class="ui orange right floated button" type="button"><i class="recycle icon"></i>{{ TEXT.RESET }}</button></a>				
 			<div class="spacer4"></div>
 			</div>
 		</form>							
